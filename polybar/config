@@ -98,34 +98,25 @@ screenchange-reload = true
 
 
 [module/battery]
-type = internal/battery
-battery = BAT0
-adapter = ADP1
-full-at = 98
-format-charging =  <label-charging>
-label-charging = %percentage:2%%
-format-foreground = ${colors.background}
-format-background = ${colors.yellow}
-format-charging-padding = 0
-format-charging-foreground = ${colors.background}
-format-charging-background = ${colors.yellow}
-format-discharging = <ramp-capacity> <label-discharging>
-label-discharging = %percentage%%
-format-discharging-foreground = ${colors.background}
-format-discharging-background = ${colors.yellow}
-format-full-prefix = "  "
-format-full-foreground = ${colors.background}
-format-full-background = ${colors.yellow}
-format-full-padding = 0
-ramp-capacity-0 = " "
-ramp-capacity-1 = " "
-ramp-capacity-2 = " "
-ramp-capacity-3 = " "
-ramp-capacity-4 = " "
-ramp-capacity-0-foreground = ${colors.red}
-ramp-capacity-0-background = ${colors.yellow}
-animation-charging-framerate = 910
-format-discharging-padding = 0
+type = internal/network
+interface = enp3s0
+interval = 1.0
+
+
+format-connected = <label-connected>
+format-connected-padding = 0
+label-connected = %{A1:wifimenu:} %essid%%{A}
+label-connected-foreground = ${colors.background}
+label-connected-background = ${colors.yellow}
+label-connected-padding = 0
+
+format-disconnected = <label-disconnected>
+format-disconnected-padding = 0
+label-disconnected = %{A1:wifimenu:}%{A}
+label-disconnected-foreground = ${colors.background}
+label-disconnected-background = ${colors.yellow}
+label-disconnected-padding = 0
+
 
 
 ;; _-_-_-_-_-_-_-_ Date/Time -_-_-_-_-_-_-_-_-_-_-_-_-_-_
@@ -263,34 +254,9 @@ label-urgent-padding = 1
 
 
 [module/backlight]
-type = internal/backlight
-
-; Use the following command to list available cards:
-; $ ls -1 /sys/class/backlight/
-card = intel_backlight
-
-use-actual-brightness = true
-
-enable-scroll = true
-
-format = <ramp> <label>
-
-label = %percentage%%
-
-; Only applies if <ramp> is used
-ramp-0 =  
-ramp-1 =  
-ramp-2 =  
-ramp-3 =  
-ramp-4 =  
-ramp-5 =  
-ramp-6 =  
-ramp-7 =  
-ramp-8 =  
-ramp-9 = 
-
-format-foreground = ${colors.background}
-format-background = ${colors.cyan}
+type = custom/text
+content = No Brightness Device
+content-background = ${colors.cyan}
 
 
 ;; _-_-_-_-_-_-_-_-_ Active window title -_-_-_-_-_-_-_-_-_-_-_-_-_
